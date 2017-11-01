@@ -1,0 +1,105 @@
+uri: cncf/demo-for-cncf-ci/build-test-release-deploy
+title: Demo For Cloud Native Computing Foundation CI Working Group
+version: 4
+tag: latest
+timeout: 0
+receivers:
+  -
+    type: mail
+    address: wangqilin@containerops.sh
+stages:
+  -
+    type: start
+    name: start
+    title: Start
+  -
+    type: normal
+    name: servicecomb-bmi-checkstyle
+    title: Building, testing bmi project.
+    sequencing: sequence
+    actions:
+      -
+        name: checkstyle-bmi
+        title: Checktyle of bmi
+        jobs:
+          -
+            type: component
+            endpoint: 10.229.40.121:8082/system/analysis-java-gradle-checkstyle:latest
+            resources:
+              cpu: 2
+              memory: 4G
+            timeout: 0
+            environments:
+              - CO_DATA: "version=gradle4 git-url=https://github.com/MabinGo/bmi.git out-put-type=json report-path=./webapp/build/reports/checkstyle"
+      -
+        name: build-bmi
+        title: Build bmi image by assembling
+        jobs:
+          -
+            type: component
+            endpoint: 10.229.40.121:8082/system/call-assembling-manven:v0.3
+            resources:
+              cpu: 1
+              memory: 1G
+            timeout: 0
+            environments:
+              - CO_DATA: "git-url=https://github.com/MabinGo/bmi.git assembling-url=https://10.229.40.121:8083 registry-url=10.229.40.121:8082 namespace=servicecomb image=bmi tag=latest insecure-registry=10.229.40.121:8082"
+      -
+        name: deploy-bmi
+        title: Deploy bmi
+        jobs:
+          -
+            type: component
+            endpoint: 10.229.40.121:8082/system/create-deployment:latest
+            resources:
+              cpu: 1
+              memory: 1G
+            environments:
+              - CO_DATA: "api-server-url=http://10.229.49.97:8080 base64-yaml-content=YXBpVmVyc2lvbjogZXh0ZW5zaW9ucy92MWJldGExCmtpbmQ6IERlcGxveW1lbnQKbWV0YWRhdGE6CiAgY3JlYXRpb25UaW1lc3RhbXA6IG51bGwKICBsYWJlbHM6CiAgICBpby5rb21wb3NlLnNlcnZpY2U6IGJtaS1jYWxjdWxhdG9yCiAgbmFtZTogYm1pLWNhbGN1bGF0b3IKc3BlYzoKICByZXBsaWNhczogMQogIHN0cmF0ZWd5OiB7fQogIHRlbXBsYXRlOgogICAgbWV0YWRhdGE6CiAgICAgIGNyZWF0aW9uVGltZXN0YW1wOiBudWxsCiAgICAgIGxhYmVsczoKICAgICAgICBpby5rb21wb3NlLnNlcnZpY2U6IGJtaS1jYWxjdWxhdG9yCiAgICBzcGVjOgogICAgICBjb250YWluZXJzOgogICAgICAtIGVudjoKICAgICAgICAtIG5hbWU6IEpBVkFfT1BUUwogICAgICAgICAgdmFsdWU6IC1EY3NlLnNlcnZpY2UucmVnaXN0cnkuYWRkcmVzcz1odHRwOi8vMTAuMjI5LjQ1LjE1MjozMDEwMAogICAgICAgIC0gbmFtZTogSkFSX05BTUUKICAgICAgICAgIHZhbHVlOiBjYWxjdWxhdG9yLTAuNC4wLVNOQVBTSE9UCiAgICAgICAgaW1hZ2U6IDEwLjIyOS40MC4xMjE6ODA4Mi9zZXJ2aWNlY29tYi9ibWk6bGF0ZXN0CiAgICAgICAgbmFtZTogYm1pLWNhbGN1bGF0b3IKICAgICAgICByZXNvdXJjZXM6CiAgICAgICAgICByZXF1ZXN0czoKICAgICAgICAgICAgY3B1OiAyMDBtCiAgICAgIHJlc3RhcnRQb2xpY3k6IEFsd2F5cwo="
+          -
+            type: component
+            endpoint: 10.229.40.121:8082/system/create-service:latest
+            resources:
+              cpu: 1
+              memory: 1G
+            environments:
+              - CO_DATA: "api-server-url=http://10.229.49.97:8080 base64-yaml-content=YXBpVmVyc2lvbjogdjEKa2luZDogU2VydmljZQptZXRhZGF0YToKICBjcmVhdGlvblRpbWVzdGFtcDogbnVsbAogIGxhYmVsczoKICAgIGlvLmtvbXBvc2Uuc2VydmljZTogYm1pLXdlYmFwcAogIG5hbWU6IGJtaS13ZWJhcHAKc3BlYzoKICBwb3J0czoKICAtIG5hbWU6ICI4ODg4IgogICAgcG9ydDogODg4OAogICAgdGFyZ2V0UG9ydDogODg4OAogICAgbm9kZVBvcnQ6IDg5OTkKICAgIHByb3RvY29sOiBUQ1AKICB0eXBlOiBOb2RlUG9ydAogIHNlbGVjdG9yOgogICAgaW8ua29tcG9zZS5zZXJ2aWNlOiBibWktd2ViYXBwCnN0YXR1czoKICBsb2FkQmFsYW5jZXI6IHt9Cg=="
+          -
+            type: component
+            endpoint: 10.229.40.121:8082/system/create-deployment:latest
+            resources:
+              cpu: 1
+              memory: 1G
+            environments:
+                - CO_DATA: "api-server-url=http://10.229.49.97:8080 base64-yaml-content=YXBpVmVyc2lvbjogZXh0ZW5zaW9ucy92MWJldGExCmtpbmQ6IERlcGxveW1lbnQKbWV0YWRhdGE6CiAgY3JlYXRpb25UaW1lc3RhbXA6IG51bGwKICBsYWJlbHM6CiAgICBpby5rb21wb3NlLnNlcnZpY2U6IGJtaS13ZWJhcHAKICBuYW1lOiBibWktd2ViYXBwCnNwZWM6CiAgcmVwbGljYXM6IDEKICBzdHJhdGVneToge30KICB0ZW1wbGF0ZToKICAgIG1ldGFkYXRhOgogICAgICBjcmVhdGlvblRpbWVzdGFtcDogbnVsbAogICAgICBsYWJlbHM6CiAgICAgICAgaW8ua29tcG9zZS5zZXJ2aWNlOiBibWktd2ViYXBwCiAgICBzcGVjOgogICAgICBjb250YWluZXJzOgogICAgICAtIGVudjoKICAgICAgICAtIG5hbWU6IEpBVkFfT1BUUwogICAgICAgICAgdmFsdWU6IC1EY3NlLnNlcnZpY2UucmVnaXN0cnkuYWRkcmVzcz1odHRwOi8vMTAuMjI5LjQ1LjE1MjozMDEwMAogICAgICAgIC0gbmFtZTogSkFSX05BTUUKICAgICAgICAgIHZhbHVlOiB3ZWJhcHAtMC40LjAtU05BUFNIT1QKICAgICAgICBpbWFnZTogMTAuMjI5LjQwLjEyMTo4MDgyL3NlcnZpY2Vjb21iL2JtaTpsYXRlc3QKICAgICAgICBuYW1lOiBibWktd2ViYXBwCiAgICAgICAgcG9ydHM6CiAgICAgICAgLSBjb250YWluZXJQb3J0OiA4ODg4CiAgICAgICAgcmVzb3VyY2VzOgogICAgICAgICAgcmVxdWVzdHM6CiAgICAgICAgICAgIGNwdTogMjAwbQogICAgICByZXN0YXJ0UG9saWN5OiBBbHdheXMK"
+      -
+        name: system-test-bmi
+        title: system test of bmi
+        jobs:
+          -
+            type: component
+            endpoint: 10.229.40.121:8082/servicecomb/bmi:latest
+            resources:
+              cpu: 1
+              memory: 1G
+            environments:
+              - JAVA_OPTS: "-Dwebserver.address=http://10.229.49.97:8999"
+              - JAR_NAME: "system-tests-0.4.0-SNAPSHOT"
+      -
+        name: release-bmi
+        title: release bmi image to huawei cloud/ Docker Hub
+        jobs:
+          -
+            type: component
+            endpoint: 10.229.40.121:8082/system/call-assembling-manven:v0.3
+            resources:
+              cpu: 1
+              memory: 1G
+            timeout: 0
+            environments:
+              - CO_DATA: "git-url=https://github.com/MabinGo/bmi.git assembling-url=https://10.229.40.121:8083 registry-url=docker.io namespace=wangkirin image=bmi tag=0.7 username=wangkirin password=wql752731 insecure-registry=10.229.40.121:8082"
+  -
+    type: end
+    name: end
+    title: End
+    

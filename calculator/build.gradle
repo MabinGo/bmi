@@ -1,0 +1,10 @@
+
+description = ''
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version:'1.4.5.RELEASE'
+    compile group: 'io.servicecomb', name: 'spring-boot-starter-provider', version:'0.3.0'
+    compile group: 'org.hibernate', name: 'hibernate-validator', version:'5.2.4.Final'
+    compile group: 'io.servicecomb', name: 'handler-flowcontrol-qps', version:'0.3.0'
+    compile group: 'io.servicecomb', name: 'handler-bizkeeper', version:'0.3.0'
+    compile group: 'junit', name: 'junit', version:'4.12'
+}

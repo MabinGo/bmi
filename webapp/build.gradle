@@ -1,0 +1,8 @@
+
+description = ''
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version:'1.4.5.RELEASE'
+    compile group: 'io.servicecomb', name: 'spring-boot-starter-servicecomb', version:'0.3.0'
+    compile group: 'io.servicecomb', name: 'spring-boot-starter-discovery', version:'0.3.0'
+    compile group: 'io.servicecomb', name: 'handler-loadbalance', version:'0.3.0'
+}
