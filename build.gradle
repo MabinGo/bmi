@@ -15,9 +15,7 @@ subprojects {
 
   
   repositories {
-    mavenLocal()
-    
-    maven { url "http://repo.maven.apache.org/maven2" }
+    maven { url "http://10.229.40.113:8090/repository/maven-central/" }
   }
 
   
