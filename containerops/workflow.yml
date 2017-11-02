@@ -37,7 +37,7 @@ stages:
         jobs:
           -
             type: component
-            endpoint: 10.229.40.121:8082/system/call-assembling-manven:v0.3
+            endpoint: 10.229.40.121:8082/system/call-assembling-manven:v0.4
             resources:
               cpu: 1
               memory: 1G
@@ -91,13 +91,13 @@ stages:
         jobs:
           -
             type: component
-            endpoint: 10.229.40.121:8082/system/call-assembling-manven:v0.3
+            endpoint: 10.229.40.121:8082/system/call-assembling-manven:v0.4
             resources:
               cpu: 1
               memory: 1G
             timeout: 0
             environments:
-              - CO_DATA: "git-url=https://github.com/MabinGo/bmi.git assembling-url=https://10.229.40.121:8083 registry-url=docker.io namespace=wangkirin image=bmi tag=0.7 username=wangkirin password=wql752731 insecure-registry=10.229.40.121:8082"
+              - CO_DATA: "git-url=https://github.com/MabinGo/bmi.git assembling-url=https://10.229.40.121:8083 registry-url=registry.cn-north-1.huaweicloud.com namespace=liuguo image=bmi tag=latest authstr=ewoJInVzZXJuYW1lIjogImNuLW5vcnRoLTFASERFV1lNRFQ5Q1VGRExETDVYVEwiLAoJInBhc3N3b3JkIjogImI5MzQwODM5MzllYjNkMDI4YjI2OWE0ZTU1OGQ4NmFhZjIyNWIxNTQ3NGI0NzY1ZWQ3Mjc4ZWZlN2NhYTA4ZDkiCn0K insecure-registry=10.229.40.121:8082"
   -
     type: end
     name: end
