@@ -5,6 +5,8 @@ EXPOSE 8888
 
 RUN mkdir -p /maven/bmi/
 
-COPY ./*-exec.jar  /maven/bmi/
+COPY ./calculator/target/bmi/*-exec.jar  /maven/bmi/
+COPY ./webapp/target/bmi/*-exec.jar  /maven/bmi/
+COPY ./system-tests/target/bmi/*-exec.jar  /maven/bmi/
 
 ENTRYPOINT java $JAVA_OPTS -jar /maven/bmi/$JAR_NAME-exec.jar

@@ -3,10 +3,10 @@ title: Demo For Cloud Native Computing Foundation CI Working Group
 version: 4
 tag: latest
 timeout: 0
-receivers:
-  -
-    type: mail
-    address: wangqilin@containerops.sh
+#receivers:
+#  -
+#    type: mail
+#    address: wangqilin@containerops.sh
 stages:
   -
     type: start
@@ -37,7 +37,7 @@ stages:
         jobs:
           -
             type: component
-            endpoint: 10.229.40.121:8082/system/call-assembling-manven:v0.4
+            endpoint: 10.229.40.121:8082/system/call-assembling-manven:v0.5
             resources:
               cpu: 1
               memory: 1G
@@ -91,7 +91,7 @@ stages:
         jobs:
           -
             type: component
-            endpoint: 10.229.40.121:8082/system/call-assembling-manven:v0.4
+            endpoint: 10.229.40.121:8082/system/call-assembling-manven:v0.5
             resources:
               cpu: 1
               memory: 1G
