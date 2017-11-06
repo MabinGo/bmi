@@ -1,18 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  creationTimestamp: null
-  labels:
-    io.kompose.service: bmi-webapp
   name: bmi-webapp
 spec:
   replicas: 1
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        io.kompose.service: bmi-webapp
+        name: bmi-webapp
     spec:
       containers:
       - env:
@@ -24,7 +19,3 @@ spec:
         name: bmi-webapp
         ports:
         - containerPort: 8888
-        resources:
-          requests:
-            cpu: 200m
-      restartPolicy: Always
