@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: bmi-webapp-1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: bmi-webapp-1
+    spec:
+      containers:
+      - env:
+        - name: JAVA_OPTS
+          value: -Dcse.service.registry.address=http://10.229.45.152:30101
+        - name: JAR_NAME
+          value: webapp-0.4.0-SNAPSHOT
+        image: 10.229.40.121:8082/servicecomb/bmi:latest
+        name: bmi-webapp-1
+        ports:
+        - containerPort: 8888

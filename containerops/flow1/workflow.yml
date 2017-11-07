@@ -91,19 +91,19 @@ stages:
             environments:
               - JAVA_OPTS: "-Dwebserver.address=http://10.229.49.97:8999"
               - JAR_NAME: "system-tests-0.4.0-SNAPSHOT"
-      -
-        name: release-bmi
-        title: release bmi image to huawei cloud
-        jobs:
-          -
-            type: component
-            endpoint: 10.229.40.121:8082/system/call-assembling-manven:v0.5
-            resources:
-              cpu: 1
-              memory: 1G
-            timeout: 0
-            environments:
-              - CO_DATA: "git-url=https://github.com/MabinGo/bmi.git assembling-url=https://10.229.40.121:8083 registry-url=registry.cn-north-1.huaweicloud.com namespace=liuguo image=bmi tag=latest authstr=ewoJInVzZXJuYW1lIjogImNuLW5vcnRoLTFASERFV1lNRFQ5Q1VGRExETDVYVEwiLAoJInBhc3N3b3JkIjogImI5MzQwODM5MzllYjNkMDI4YjI2OWE0ZTU1OGQ4NmFhZjIyNWIxNTQ3NGI0NzY1ZWQ3Mjc4ZWZlN2NhYTA4ZDkiCn0K insecure-registry=10.229.40.121:8082"
+#      -
+#        name: release-bmi
+#        title: release bmi image to huawei cloud
+#        jobs:
+#          -
+#            type: component
+#            endpoint: 10.229.40.121:8082/system/call-assembling-manven:v0.5
+#            resources:
+#              cpu: 1
+#              memory: 1G
+#            timeout: 0
+#            environments:
+#              - CO_DATA: "git-url=https://github.com/MabinGo/bmi.git assembling-url=https://10.229.40.121:8083 registry-url=registry.cn-north-1.huaweicloud.com namespace=liuguo image=bmi tag=latest authstr=ewoJInVzZXJuYW1lIjogImNuLW5vcnRoLTFASERFV1lNRFQ5Q1VGRExETDVYVEwiLAoJInBhc3N3b3JkIjogImI5MzQwODM5MzllYjNkMDI4YjI2OWE0ZTU1OGQ4NmFhZjIyNWIxNTQ3NGI0NzY1ZWQ3Mjc4ZWZlN2NhYTA4ZDkiCn0K insecure-registry=10.229.40.121:8082"
   -
     type: end
     name: end

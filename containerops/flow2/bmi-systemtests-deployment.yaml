@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: bmi-system-tests-1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: bmi-system-tests-1
+    spec:
+      containers:
+      - env:
+        - name: JAVA_OPTS
+          value: -Dwebserver.address=http://10.229.49.97:8998
+        - name: JAR_NAME
+          value: system-tests-0.4.0-SNAPSHOT
+        image: 10.229.40.121:8082/servicecomb/bmi:latest
+        name: bmi-system-tests-1

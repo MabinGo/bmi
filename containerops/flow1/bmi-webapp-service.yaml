@@ -4,7 +4,7 @@ metadata:
   name: bmi-webapp
 spec:
   ports:
-  - name: "8888"
+  - name: "flow1"
     port: 8888
     targetPort: 8888
     nodePort: 8999
