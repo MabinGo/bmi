@@ -15,7 +15,7 @@ subprojects {
 
   
   repositories {
-    maven { url "http://10.229.40.113:8090/repository/maven-central/" }
+    maven { url "http://10.229.40.113:8765/repository/maven-central/" }
   }
 
   
