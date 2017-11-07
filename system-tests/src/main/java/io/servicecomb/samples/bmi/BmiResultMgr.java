@@ -17,13 +17,15 @@
 package io.servicecomb.samples.bmi;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class BmiResultMgr {
   private static final Logger LOGGER = LoggerFactory.getLogger(BmiResultMgr.class);
 
-  private static final ArrayList<Throwable> errorList = new ArrayList<>();
+//  private static final ArrayList<Throwable> errorList = new ArrayList<>();
+  private static final List<Throwable> errorList = new ArrayList<Throwable>();
 
   static void check(Object expect, Object real) {
     String strExpect = String.valueOf(expect);
