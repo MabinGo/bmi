@@ -15,14 +15,30 @@
 #
 
 zuul:
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
   routes:
-    calculator:
+    calculator-flag:
       serviceId: calculator
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+  threadpool:
+    default:
+      coreSize: 500
 
 # disable netflix eurkea since it's not used for service discovery
 ribbon:
   eureka:
     enabled: false
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
 
 server:
   port: 8888

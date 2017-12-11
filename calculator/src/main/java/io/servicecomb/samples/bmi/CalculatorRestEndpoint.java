@@ -19,6 +19,7 @@ package io.servicecomb.samples.bmi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -46,5 +47,13 @@ public class CalculatorRestEndpoint implements CalculatorEndpoint {
   @ResponseBody
   public double calculate(double height, double weight) {
     return calculatorService.calculate(height, weight);
+  }
+
+  @RequestMapping(value = "/post",method = RequestMethod.POST)
+  @ResponseBody
+  public void updateDate(@RequestBody UserInfo reqBody){
+    System.out.println(reqBody.getAccount());
+    System.out.println(reqBody.getAge());
+    System.out.println(reqBody.toString());
   }
 }
