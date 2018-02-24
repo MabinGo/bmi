@@ -23,7 +23,7 @@ service_description:
 cse:
   service:
     registry:
-      address: http://127.0.0.1:30100
+      address: https://cse.cn-north-1.myhwclouds.com:443
   handler:
     chain:
       Consumer:
@@ -32,6 +32,11 @@ cse:
     retryEnabled: true
     retryOnSame: 1
     retryOnNext: 1
+  credentials:
+    accessKey: 4U4I3EOZU1GSF76SVGZJ
+    secretKey: Pp9jHsBFhbMUpUnphsa9Ex0s8porgLtN2bHi1R6T
+    akskCustomCipher: default
+
 
 servicecomb:
   tracing:

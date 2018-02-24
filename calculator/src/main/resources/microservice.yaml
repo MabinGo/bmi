@@ -23,7 +23,7 @@ service_description:
 cse:
   service:
     registry:
-      address: http://127.0.0.1:30100
+      address: https://cse.cn-north-1.myhwclouds.com:443
   handler:
     chain:
       Provider:
@@ -40,8 +40,14 @@ cse:
   fallbackpolicy:
     Provider:
       policy: returnnull
+  highway:
+    address: 0.0.0.0:7075
   rest:
     address: 0.0.0.0:8085
+  credentials:
+    accessKey: 4U4I3EOZU1GSF76SVGZJ
+    secretKey: Pp9jHsBFhbMUpUnphsa9Ex0s8porgLtN2bHi1R6T
+    akskCustomCipher: default
 
 servicecomb:
   tracing:
