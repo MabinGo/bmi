@@ -16,18 +16,17 @@
 
 package io.servicecomb.samples.bmi.filters;
 
-import static io.servicecomb.core.Const.CSE_CONTEXT;
 
 import org.springframework.stereotype.Component;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
-import io.servicecomb.config.ConfigUtil;
-import io.servicecomb.config.archaius.sources.MicroserviceConfigLoader;
-import io.servicecomb.foundation.common.utils.JsonUtils;
-import io.servicecomb.serviceregistry.definition.MicroserviceDefinition;
+import static org.apache.servicecomb.core.Const.CSE_CONTEXT;
+import org.apache.servicecomb.config.ConfigUtil;
+import org.apache.servicecomb.config.archaius.sources.MicroserviceConfigLoader;
+import org.apache.servicecomb.foundation.common.utils.JsonUtils;
+import org.apache.servicecomb.serviceregistry.definition.MicroserviceDefinition;
 
 @Component
 public class CseHeaderFilter extends ZuulFilter {

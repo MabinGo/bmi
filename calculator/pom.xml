@@ -33,7 +33,7 @@
       <artifactId>spring-boot-starter-log4j2</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.servicecomb</groupId>
+      <groupId>org.apache.servicecomb</groupId>
       <artifactId>spring-boot-starter-provider</artifactId>
     </dependency>
     <dependency>
@@ -41,11 +41,11 @@
       <artifactId>hibernate-validator</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.servicecomb</groupId>
+      <groupId>org.apache.servicecomb</groupId>
       <artifactId>handler-flowcontrol-qps</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.servicecomb</groupId>
+      <groupId>org.apache.servicecomb</groupId>
       <artifactId>handler-bizkeeper</artifactId>
     </dependency>
     <dependency>
