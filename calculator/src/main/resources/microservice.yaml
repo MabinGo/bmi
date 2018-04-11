@@ -40,10 +40,10 @@ cse:
   fallbackpolicy:
     Provider:
       policy: returnnull
-  highway:
-    address: 0.0.0.0:7075
   rest:
     address: 0.0.0.0:8085
+#  highway:
+#    address: 0.0.0.0:7075
 
 
 servicecomb:
