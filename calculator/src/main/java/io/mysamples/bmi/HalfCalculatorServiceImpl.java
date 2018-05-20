@@ -14,15 +14,20 @@
  *  limitations under the License.
  */
 
-package io.servicecomb.samples.bmi;
+package io.mysamples.bmi;
 
-/**
- * {@link CalculatorService} provides interface of actual BMI calculation.
- */
-public interface CalculatorService {
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
+
+@Profile("v2")
+@Service
+public class HalfCalculatorServiceImpl extends CalculatorServiceImpl {
 
   /**
-   * @see CalculatorEndpoint#calculate(double, double)
+   * calculate half of BMI value
    */
-  double calculate(double height, double weight);
+  @Override
+  public double calculate(double height, double weight) {
+    return super.calculate(height, weight) / 2;
+  }
 }

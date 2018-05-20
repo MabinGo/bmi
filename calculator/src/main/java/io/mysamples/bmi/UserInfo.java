@@ -1,4 +1,4 @@
-package io.servicecomb.samples.bmi;
+package io.mysamples.bmi;
 
 import java.io.Serializable;
 

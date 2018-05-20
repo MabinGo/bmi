@@ -14,15 +14,18 @@
  *  limitations under the License.
  */
 
-package io.servicecomb.samples.bmi;
+package io.mysamples.bmi;
 
-/**
- * {@link CalculatorEndpoint} provides the common interface for different endpoint implementations.
- * It needs to be declared as public.
- */
-public interface CalculatorEndpoint {
-  /**
-   * Calculate the BMI(Body Mass Index).
-   */
-  double calculate(double height, double weight);
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import org.apache.servicecomb.springboot.starter.provider.EnableServiceComb;
+
+@SpringBootApplication
+@EnableServiceComb
+public class CalculatorApplication {
+
+  public static void main(String[] args) {
+    SpringApplication.run(CalculatorApplication.class, args);
+  }
 }

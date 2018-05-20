@@ -14,19 +14,15 @@
  *  limitations under the License.
  */
 
-package io.servicecomb.samples.bmi;
+package io.mysamples.bmi;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-
-import org.apache.servicecomb.springboot.starter.provider.EnableServiceComb;
-
-@SpringBootApplication
-@EnableZuulProxy
-@EnableServiceComb
-public class GatewayApplication {
-  public static void main(String[] args) {
-    SpringApplication.run(GatewayApplication.class, args);
-  }
+/**
+ * {@link CalculatorEndpoint} provides the common interface for different endpoint implementations.
+ * It needs to be declared as public.
+ */
+public interface CalculatorEndpoint {
+  /**
+   * Calculate the BMI(Body Mass Index).
+   */
+  double calculate(double height, double weight);
 }

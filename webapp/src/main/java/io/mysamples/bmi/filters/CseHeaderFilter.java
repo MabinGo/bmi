@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package io.servicecomb.samples.bmi.filters;
+package io.mysamples.bmi.filters;
 
 
 import org.springframework.stereotype.Component;

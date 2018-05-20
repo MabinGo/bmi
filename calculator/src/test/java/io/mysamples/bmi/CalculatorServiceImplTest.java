@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package io.servicecomb.samples.bmi;
+package io.mysamples.bmi;
 
 import static org.hamcrest.CoreMatchers.is;
 

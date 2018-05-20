@@ -14,20 +14,32 @@
  *  limitations under the License.
  */
 
-package io.servicecomb.samples.bmi;
+package io.mysamples.bmi;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-@Profile("v2")
+@Profile("!v2")
 @Service
-public class HalfCalculatorServiceImpl extends CalculatorServiceImpl {
+public class CalculatorServiceImpl implements CalculatorService {
 
   /**
-   * calculate half of BMI value
+   * {@inheritDoc}
    */
   @Override
   public double calculate(double height, double weight) {
-    return super.calculate(height, weight) / 2;
+    if (height <= 0 || weight <= 0) {
+      throw new IllegalArgumentException("Arguments must be above 0");
+    }
+    double heightInMeter = height / 100;
+    double bmi = weight / (heightInMeter * heightInMeter);
+    return roundToOnePrecision(bmi);
+  }
+
+  private double roundToOnePrecision(double value) {
+    return new BigDecimal(value).setScale(1, RoundingMode.HALF_UP).doubleValue();
   }
 }
