@@ -17,16 +17,25 @@
 
 package io.mysamples.bmi;
 
-import org.apache.servicecomb.springboot.starter.provider.EnableServiceComb;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.apache.servicecomb.serviceregistry.RegistryUtils;
+import org.apache.servicecomb.serviceregistry.api.registry.MicroserviceInstance;
+import org.springframework.stereotype.Service;
 
-@SpringBootApplication
-@EnableZuulProxy
-@EnableServiceComb
-public class GatewayApplication {
-  public static void main(String[] args) {
-    SpringApplication.run(GatewayApplication.class, args);
+@Service
+public class InstanceInfoServiceImpl implements InstanceInfoService {
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getInstanceId() {
+
+    MicroserviceInstance instance = RegistryUtils.getMicroserviceInstance();
+    if (instance == null) {
+      throw new IllegalStateException(
+          "unable to find any service instances, maybe there is problem registering in service center?");
+    }
+    return instance.getInstanceId();
   }
+
 }

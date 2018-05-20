@@ -17,16 +17,10 @@
 
 package io.mysamples.bmi;
 
-import org.apache.servicecomb.springboot.starter.provider.EnableServiceComb;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+/**
+ * {@link InstanceInfoService} provides interface of instance information.
+ */
+public interface InstanceInfoService {
 
-@SpringBootApplication
-@EnableZuulProxy
-@EnableServiceComb
-public class GatewayApplication {
-  public static void main(String[] args) {
-    SpringApplication.run(GatewayApplication.class, args);
-  }
+  String getInstanceId();
 }
