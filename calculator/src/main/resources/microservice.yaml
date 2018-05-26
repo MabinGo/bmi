@@ -32,3 +32,12 @@ servicecomb:
     chain:
       Provider:
         default: bizkeeper-provider
+  circuitBreaker:
+    Provider:
+      calculator:
+        requestVolumeThreshold: 3
+        sleepWindowInMilliseconds: 15000
+  fallbackpolicy:
+    Provider:
+      calculator:
+        policy: returnnull
