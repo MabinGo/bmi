@@ -31,7 +31,7 @@ servicecomb:
   handler:
     chain:
       Provider:
-        default: bizkeeper-provider
+        default: bizkeeper-provider, qps-flowcontrol-provider
   circuitBreaker:
     Provider:
       calculator:
@@ -41,3 +41,8 @@ servicecomb:
     Provider:
       calculator:
         policy: returnnull
+  flowcontrol:
+    Provider:
+      qps:
+        global:
+          limit: 5
