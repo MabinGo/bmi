@@ -32,6 +32,12 @@ servicecomb:
     chain:
       Provider:
         default: bizkeeper-provider, qps-flowcontrol-provider
+  isolation:
+    Provider:
+      timeout:
+        enabled: true
+      timeoutInMilliseconds: 30000
+      maxConcurrentRequests: 10
   circuitBreaker:
     Provider:
       calculator:
