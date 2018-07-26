@@ -38,10 +38,10 @@ public class CalculatorApplicationIT {
 
   @Test
   public void getCalculatorResult() {
-    String serviceAddress = "http://localhost:8081";
-    ResponseEntity<Double> responseEntity = restTemplate.getForEntity(
+    String serviceAddress = "http://localhost:7777";
+    ResponseEntity<String> responseEntity = restTemplate.getForEntity(
         serviceAddress + "/bmi?height=170&weight=68",
-        Double.class);
+        String.class);
 
     assertThat(responseEntity.getStatusCode()).isEqualTo(OK);
   }
