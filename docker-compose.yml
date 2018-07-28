@@ -24,22 +24,22 @@ services:
       - "30100:30100"
 
   webapp:
-    image: "webapp:0.4.0-SNAPSHOT"
+    image: "webapp:1.0.0-SNAPSHOT"
     hostname: webapp
     links:
       - "servicecenter:sc.servicecomb.io"
     environment:
-      - JAR_NAME=webapp-0.4.0-SNAPSHOT
+      - JAR_NAME=webapp-1.0.0-SNAPSHOT
       - JAVA_OPTS=-Dcse.service.registry.address=http://sc.servicecomb.io:30100
     ports:
       - "8888:8888"
   calculator:
-    image: "calculator:0.4.0-SNAPSHOT"
+    image: "calculator:1.0.0-SNAPSHOT"
     hostname: calculator
     links:
       - "servicecenter:sc.servicecomb.io"
     environment:
-      - JAR_NAME=calculator-0.4.0-SNAPSHOT
+      - JAR_NAME=calculator-1.0.0-SNAPSHOT
       - JAVA_OPTS=-Dcse.service.registry.address=http://sc.servicecomb.io:30100
     ports:
       - "8081:8081"

@@ -90,7 +90,7 @@ stages:
               memory: 1G
             environments:
               - JAVA_OPTS: "-Dwebserver.address=http://10.229.49.97:8998"
-              - JAR_NAME: "system-tests-0.4.0-SNAPSHOT"
+              - JAR_NAME: "system-tests-1.0.0-SNAPSHOT"
 #      -
 #        name: release-bmi
 #        title: release bmi image to huawei cloud

@@ -14,6 +14,6 @@ spec:
         - name: JAVA_OPTS
           value: -Dcse.service.registry.address=http://10.229.45.152:30101
         - name: JAR_NAME
-          value: calculator-0.4.0-SNAPSHOT
+          value: calculator-1.0.0-SNAPSHOT
         image: 10.229.40.121:8082/servicecomb/bmi:latest
         name: bmi-calculator-1

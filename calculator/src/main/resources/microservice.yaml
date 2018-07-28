@@ -50,5 +50,7 @@ servicecomb:
   flowcontrol:
     Provider:
       qps:
-        global:
-          limit: 5
+        limit:
+          gateway:
+            calculatorRestEndpoint:
+              calculate: 10

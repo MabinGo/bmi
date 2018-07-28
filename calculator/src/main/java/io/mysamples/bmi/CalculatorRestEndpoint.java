@@ -23,6 +23,7 @@ import org.apache.servicecomb.provider.rest.common.RestSchema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * {@link CalculatorRestEndpoint} provides the rest implementation of {@link CalculatorEndpoint}.
@@ -49,6 +50,13 @@ public class CalculatorRestEndpoint implements CalculatorEndpoint {
     String instanceId = instanceInfoService.getInstanceId();
     double bmiResult = calculatorService.calculate(height, weight);
     return new BMIViewObject(bmiResult, instanceId, new Date());
+  }
+
+  @RequestMapping(path = "/healthycheck", method = RequestMethod.GET)
+  @Override
+  public String healthycheck() {
+
+    return "connection is ready";
   }
 
 }

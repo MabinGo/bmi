@@ -26,4 +26,6 @@ public interface CalculatorEndpoint {
    * Calculate the BMI(Body Mass Index).
    */
   BMIViewObject calculate(double height, double weight);
+
+  String healthycheck();
 }
