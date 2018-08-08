@@ -54,3 +54,7 @@ servicecomb:
           gateway:
             calculatorRestEndpoint:
               calculate: 10
+  metrics:
+    window_time: 5000
+    prometheus:
+      port: 9696
