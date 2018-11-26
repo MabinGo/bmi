@@ -53,6 +53,10 @@
       <groupId>org.apache.servicecomb</groupId>
       <artifactId>spring-cloud-zuul-zipkin</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.apache.servicecomb</groupId>
+      <artifactId>handler-bizkeeper</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

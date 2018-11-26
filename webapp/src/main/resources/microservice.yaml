@@ -29,7 +29,13 @@ servicecomb:
   handler:
     chain:
       Consumer:
-        default: tracing-provider
+        default: tracing-consumer,bizkeeper-consumer
   tracing:
     collector:
       address: http://192.168.88.137:9411
+  isolation:
+    Consumer:
+      timeout:
+        enabled: true
+      timeoutInMilliseconds: 5000
+      maxConcurrentRequests: 10

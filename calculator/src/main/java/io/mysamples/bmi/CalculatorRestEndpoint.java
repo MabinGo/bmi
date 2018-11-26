@@ -17,6 +17,8 @@
 
 package io.mysamples.bmi;
 
+import static java.lang.Thread.sleep;
+
 import java.util.Date;
 
 import org.apache.servicecomb.provider.rest.common.RestSchema;
@@ -52,11 +54,21 @@ public class CalculatorRestEndpoint implements CalculatorEndpoint {
     return new BMIViewObject(bmiResult, instanceId, new Date());
   }
 
-  @RequestMapping(path = "/healthycheck", method = RequestMethod.GET)
+  @RequestMapping(path = "/livecheck", method = RequestMethod.GET)
   @Override
-  public String healthycheck() {
+  public String liveCheck() {
 
-    return "connection is ready";
+    return "Calculator is ready";
   }
 
+  @RequestMapping(path = "/sleeptest", method = RequestMethod.GET)
+  @Override
+  public void sleepTest() {
+    System.out.println("sleep 3s");
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
 }

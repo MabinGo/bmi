@@ -27,5 +27,7 @@ public interface CalculatorEndpoint {
    */
   BMIViewObject calculate(double height, double weight);
 
-  String healthycheck();
+  String liveCheck();
+
+  void sleepTest();
 }
