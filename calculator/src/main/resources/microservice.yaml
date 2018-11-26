@@ -31,7 +31,7 @@ servicecomb:
   handler:
     chain:
       Provider:
-        default: bizkeeper-provider, qps-flowcontrol-provider
+        default: bizkeeper-provider, qps-flowcontrol-provider, tracing-provider
   isolation:
     Provider:
       timeout:
@@ -54,7 +54,6 @@ servicecomb:
           gateway:
             calculatorRestEndpoint:
               calculate: 10
-  metrics:
-    window_time: 5000
-    prometheus:
-      port: 9696
+  tracing:
+    collector:
+      address: http://192.168.88.137:9411
