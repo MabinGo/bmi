@@ -17,8 +17,6 @@
 
 package io.mysamples.bmi;
 
-import static java.lang.Thread.sleep;
-
 import java.util.Date;
 
 import org.apache.servicecomb.provider.rest.common.RestSchema;

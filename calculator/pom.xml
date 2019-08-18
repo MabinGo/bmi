@@ -78,6 +78,35 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
+
+      <!--<plugin>-->
+        <!--<groupId>org.apache.servicecomb.toolkit</groupId>-->
+        <!--<artifactId>toolkit-maven-plugin</artifactId>-->
+        <!--<version>0.1.0-SNAPSHOT</version>-->
+        <!--<configuration>-->
+          <!--<sourceType>code</sourceType>-->
+          <!--<contractFileType>yaml</contractFileType>-->
+          <!--<documentType>html</documentType>-->
+          <!--<contractLocation>contract</contractLocation>-->
+          <!--&lt;!&ndash;<outputDirectory>target</outputDirectory>&ndash;&gt;-->
+          <!--<sourceContractPath>contract</sourceContractPath>-->
+          <!--<destinationContractPath>target/contract</destinationContractPath>-->
+          <!--<service>-->
+            <!--&lt;!&ndash; 微服务的类型，可生成 provider/consumer/all，默认值为 all &ndash;&gt;-->
+            <!--<serviceType>all</serviceType>-->
+            <!--&lt;!&ndash; 微服务的 groupid，用户可选，默认值为 domain.orgnization.project &ndash;&gt;-->
+            <!--<groupId>domain.orgnization.project</groupId>-->
+            <!--&lt;!&ndash; 微服务的 artifactId，用户可选，默认值为 sample &ndash;&gt;-->
+            <!--<artifactId>sample</artifactId>-->
+            <!--&lt;!&ndash; 微服务的 artifactVersion，用户可选，默认值为 0.1.0-SNAPSHOT &ndash;&gt;-->
+            <!--<artifactVersion>0.1.0-SNAPSHOT</artifactVersion>-->
+            <!--&lt;!&ndash; 微服务的 packageName，用户可选，默认值为 domain.orgnization.project.sample &ndash;&gt;-->
+            <!--<packageName>domain.orgnization.project.sample</packageName>-->
+          <!--</service>-->
+        <!--</configuration>-->
+      <!--</plugin>-->
+
+
     </plugins>
   </build>
 
